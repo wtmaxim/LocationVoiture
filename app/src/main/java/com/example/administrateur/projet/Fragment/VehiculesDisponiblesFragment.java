@@ -12,6 +12,7 @@ import android.widget.ListView;
 
 import com.example.administrateur.projet.Adapter.VehiculeAdapter;
 import com.example.administrateur.projet.BO.Vehicule;
+import com.example.administrateur.projet.DAL.ILocation;
 import com.example.administrateur.projet.R;
 
 import java.util.List;
@@ -88,7 +89,6 @@ public class VehiculesDisponiblesFragment extends Fragment {
     }
 
     public void setList(List<Vehicule> vehicules) {
-        this.vehicules = vehicules;
         ListView listeViewVehicules = this.getView().findViewById(R.id.listview_vehicules_dispo);
         VehiculeAdapter adapter = new VehiculeAdapter(
                 this.getContext(),
