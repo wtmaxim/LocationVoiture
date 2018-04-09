@@ -7,8 +7,14 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
+import com.example.administrateur.projet.Adapter.VehiculeAdapter;
+import com.example.administrateur.projet.BO.Vehicule;
 import com.example.administrateur.projet.R;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,6 +35,7 @@ public class VehiculesDisponiblesFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+    private List<Vehicule> vehicules;
 
     public VehiculesDisponiblesFragment() {
         // Required empty public constructor
@@ -65,14 +72,29 @@ public class VehiculesDisponiblesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_vehicules_disponibles, container, false);
+        View view = inflater.inflate(R.layout.fragment_vehicules_disponibles, container, false);
+
+        ListView vehiculesDispo = view.findViewById(R.id.listview_vehicules_dispo);
+        vehiculesDispo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                if(vehicules != null) {
+                    mListener.clickVehicule(vehicules.get(position));
+                }
+            }
+        });
+
+        return view;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
+    public void setList(List<Vehicule> vehicules) {
+        this.vehicules = vehicules;
+        ListView listeViewVehicules = this.getView().findViewById(R.id.listview_vehicules_dispo);
+        VehiculeAdapter adapter = new VehiculeAdapter(
+                this.getContext(),
+                R.layout.ligne_liste_vehicule,
+                vehicules);
+        listeViewVehicules.setAdapter(adapter);
     }
 
     @Override
@@ -104,6 +126,6 @@ public class VehiculesDisponiblesFragment extends Fragment {
      */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
+        void clickVehicule(Vehicule vehicule);
     }
 }
