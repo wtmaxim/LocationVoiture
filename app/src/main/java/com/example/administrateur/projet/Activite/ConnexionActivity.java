@@ -1,5 +1,6 @@
 package com.example.administrateur.projet.Activite;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -22,5 +23,11 @@ public class ConnexionActivity extends AppCompatActivity implements ConnexionFra
     @Override
     public void Connexion(String nom, String motDePasse) {
 
+    }
+
+    @Override
+    public void Inscription() {
+        Intent intent = new Intent(ConnexionActivity.this, InscriptionActivity.class);
+        startActivity(intent);
     }
 }

@@ -113,5 +113,6 @@ public class ConnexionFragment extends Fragment {
      */
     public interface OnFragmentInteractionListener {
         void Connexion(String nom, String motDePasse);
+        void Inscription();
     }
 }
