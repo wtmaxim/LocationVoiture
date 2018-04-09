@@ -8,11 +8,12 @@ public class Vehicule {
     private float dureeMin;
     private float tariffMin;
     private float tarifMax;
+    private boolean estLoue;
 
     public Vehicule() {
     }
 
-    public Vehicule(int id, String libelle, int nbPlaces, float dureeMax, float dureeMin, float tariffMin, float tarifMax) {
+    public Vehicule(int id, String libelle, int nbPlaces, float dureeMax, float dureeMin, float tariffMin, float tarifMax, boolean estLoue) {
         this.id = id;
         this.libelle = libelle;
         this.nbPlaces = nbPlaces;
@@ -20,6 +21,7 @@ public class Vehicule {
         this.dureeMin = dureeMin;
         this.tariffMin = tariffMin;
         this.tarifMax = tarifMax;
+        this.estLoue = estLoue;
     }
 
     public int getId() {
@@ -76,5 +78,13 @@ public class Vehicule {
 
     public void setTarifMax(float tarifMax) {
         this.tarifMax = tarifMax;
+    }
+
+    public boolean isEstLoue() {
+        return estLoue;
+    }
+
+    public void setEstLoue(boolean estLoue) {
+        this.estLoue = estLoue;
     }
 }
