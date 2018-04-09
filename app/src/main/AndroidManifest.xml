@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.administrateur.projet">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".Activite.InscriptionActivity"
+            android:label="@string/title_activity_inscription"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Activite.ConnexionActivity"
+            android:label="@string/title_activity_connexion"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Activite.LouerVehiculeActivity" />
+        <activity android:name=".Activite.ModifierAgenceActivity" />
+        <activity android:name=".Activite.VehiculesDisponiblesActivity" />
+        <activity android:name=".Activite.VehiculesLouesActivity" />
+        <activity android:name=".Activite.RendreVehiculeActivity"></activity>
+    </application>
+
+</manifest>

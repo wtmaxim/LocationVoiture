@@ -1,0 +1,36 @@
+<LinearLayout android:orientation="vertical" android:layout_height="match_parent" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="nom"/>
+
+    <EditText
+        android:id="@+id/connexion_nom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mot de passe"/>
+
+    <EditText
+        android:id="@+id/connexion_motDePasse"
+        android:inputType="textPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/connexion_bouton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="connexion"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="inscription"/>
+
+</LinearLayout>
