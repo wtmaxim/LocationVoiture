@@ -1,5 +1,7 @@
 package com.example.administrateur.projet.BO;
 
+import java.io.Serializable;
+
 /**
  * Created by Administrateur on 09/04/2018.
  */
