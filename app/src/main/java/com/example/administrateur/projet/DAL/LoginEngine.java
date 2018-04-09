@@ -1,19 +1,20 @@
 package com.example.administrateur.projet.DAL;
 
 import com.example.administrateur.projet.BO.Utilisateur;
+import com.example.administrateur.projet.Bouchon.LoginBouchon;
 
 /**
  * Created by Administrateur on 09/04/2018.
  */
 
-public class LoginEngine implements ILogin {
+public class LoginEngine {
 
-    @Override
-    public void Connexion(String nom, String motDePasse) {
-
+    public Utilisateur Connexion(Utilisateur utilisateur) {
+        LoginBouchon loginBouchon = new LoginBouchon();
+        Utilisateur utilisateurConnected = loginBouchon.getOneUser(utilisateur);
+        return utilisateurConnected;
     }
 
-    @Override
     public void Inscription(Utilisateur utilisateur) {
 
     }
