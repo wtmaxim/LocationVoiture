@@ -16,12 +16,25 @@
         <activity
             android:name=".Activite.ConnexionActivity"
             android:label="@string/title_activity_connexion"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
         <activity android:name=".Activite.LouerVehiculeActivity" />
         <activity android:name=".Activite.ModifierAgenceActivity" />
         <activity android:name=".Activite.VehiculesDisponiblesActivity" />
         <activity android:name=".Activite.VehiculesLouesActivity" />
         <activity android:name=".Activite.RendreVehiculeActivity"></activity>
+
+        <service
+            android:name=".Service.LoginService"
+            android:enabled="true"
+            android:exported="true" />
     </application>
 
 </manifest>

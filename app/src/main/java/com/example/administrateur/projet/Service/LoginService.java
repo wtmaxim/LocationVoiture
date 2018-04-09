@@ -5,6 +5,10 @@ import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
+import android.util.Log;
+
+import com.example.administrateur.projet.BO.Utilisateur;
+import com.example.administrateur.projet.DAL.LoginEngine;
 
 public class LoginService extends Service {
     private IBinder binder;
@@ -23,7 +27,9 @@ public class LoginService extends Service {
         return binder;
     }
 
-    public void Event(String type, String valeur) {
-
+    public void Event(Utilisateur utilisateur) {
+        LoginEngine loginEngine = new LoginEngine();
+        Utilisateur retour = loginEngine.Connexion(utilisateur);
+        Log.i(LoginService.class.getName(), retour.toString());
     }
 }

@@ -9,10 +9,13 @@ import com.example.administrateur.projet.Bouchon.LoginBouchon;
 
 public class LoginEngine {
 
+    public LoginEngine() {
+
+    }
+
     public Utilisateur Connexion(Utilisateur utilisateur) {
         LoginBouchon loginBouchon = new LoginBouchon();
-        Utilisateur utilisateurConnected = loginBouchon.getOneUser(utilisateur);
-        return utilisateurConnected;
+        return loginBouchon.getOneUser(utilisateur);
     }
 
     public void Inscription(Utilisateur utilisateur) {

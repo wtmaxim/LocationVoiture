@@ -7,8 +7,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.administrateur.projet.BO.Utilisateur;
 import com.example.administrateur.projet.R;
 
 /**
@@ -31,6 +33,8 @@ public class ConnexionFragment extends Fragment {
 
     EditText editTextNom;
     EditText editTextMotDePasse;
+    Utilisateur utilisateur;
+    Button boutonConnexion;
 
     private OnFragmentInteractionListener mListener;
 
@@ -71,15 +75,23 @@ public class ConnexionFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_connexion, container, false);
 
+        utilisateur = new Utilisateur();
+
         editTextNom = view.findViewById(R.id.connexion_nom);
         editTextMotDePasse = view.findViewById(R.id.connexion_motDePasse);
+        boutonConnexion = view.findViewById(R.id.connexion_bouton);
 
-        String nom = editTextNom.getText().toString();
-        String motDePasse = editTextMotDePasse.getText().toString();
+        boutonConnexion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                utilisateur.setNom(editTextNom.getText().toString());
+                utilisateur.setMotDePasse(editTextMotDePasse.getText().toString());
 
-        if(editTextNom.getText() != null || editTextMotDePasse.getText() != null) {
-            mListener.Connexion(nom, motDePasse);
-        }
+                if(editTextNom.getText() != null || editTextMotDePasse.getText() != null) {
+                    mListener.Connexion(utilisateur);
+                }
+            }
+        });
 
         return view;
     }
@@ -112,7 +124,7 @@ public class ConnexionFragment extends Fragment {
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnFragmentInteractionListener {
-        void Connexion(String nom, String motDePasse);
+        void Connexion(Utilisateur utilisateur);
         void Inscription();
     }
 }

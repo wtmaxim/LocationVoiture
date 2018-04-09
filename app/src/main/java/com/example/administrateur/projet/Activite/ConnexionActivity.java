@@ -18,6 +18,7 @@ import com.example.administrateur.projet.Service.LoginService;
 
 public class ConnexionActivity extends AppCompatActivity implements ConnexionFragment.OnFragmentInteractionListener {
     private LoginService loginService;
+    private Utilisateur utilisateur2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,9 +27,11 @@ public class ConnexionActivity extends AppCompatActivity implements ConnexionFra
 
     }
 
+    @Override
     public void Connexion(Utilisateur utilisateur) {
         Intent intent = new Intent(ConnexionActivity.this, LoginService.class);
-        //intent.putExtra("Utilisateur", Utilisateur);
+        //intent.putExtra("Utilisateur", utilisateur);
+        utilisateur2 = utilisateur;
         bindService(intent, serviceConnection, BIND_AUTO_CREATE);
     }
 
@@ -42,7 +45,7 @@ public class ConnexionActivity extends AppCompatActivity implements ConnexionFra
         @Override
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             loginService = ((LoginService.LoginServiceBinder) iBinder).getService();
-            loginService.Event("Bind", ConnexionActivity.class.getName());
+            loginService.Event(utilisateur2);
         }
 
         @Override
