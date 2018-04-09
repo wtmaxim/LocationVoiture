@@ -10,15 +10,8 @@ import android.view.ViewGroup;
 
 import com.example.administrateur.projet.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link ModifierVehiculeFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link ModifierVehiculeFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class ModifierVehiculeFragment extends Fragment {
+
+public class ModifierAgenceFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -30,7 +23,7 @@ public class ModifierVehiculeFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public ModifierVehiculeFragment() {
+    public ModifierAgenceFragment() {
         // Required empty public constructor
     }
 
@@ -43,8 +36,8 @@ public class ModifierVehiculeFragment extends Fragment {
      * @return A new instance of fragment ModifierVehiculeFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static ModifierVehiculeFragment newInstance(String param1, String param2) {
-        ModifierVehiculeFragment fragment = new ModifierVehiculeFragment();
+    public static ModifierAgenceFragment newInstance(String param1, String param2) {
+        ModifierAgenceFragment fragment = new ModifierAgenceFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -65,7 +58,7 @@ public class ModifierVehiculeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_modifier_vehicule, container, false);
+        return inflater.inflate(R.layout.fragment_modifier_agence, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
