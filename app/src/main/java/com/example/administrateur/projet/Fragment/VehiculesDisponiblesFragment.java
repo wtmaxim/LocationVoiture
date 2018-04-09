@@ -1,7 +1,6 @@
 package com.example.administrateur.projet.Fragment;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.example.administrateur.projet.Adapter.VehiculeAdapter;
+import com.example.administrateur.projet.Adapter.VehiculeDispoAdapter;
 import com.example.administrateur.projet.BO.Vehicule;
 import com.example.administrateur.projet.DAL.ILocation;
 import com.example.administrateur.projet.R;
@@ -90,7 +89,7 @@ public class VehiculesDisponiblesFragment extends Fragment {
 
     public void setList(List<Vehicule> vehicules) {
         ListView listeViewVehicules = this.getView().findViewById(R.id.listview_vehicules_dispo);
-        VehiculeAdapter adapter = new VehiculeAdapter(
+        VehiculeDispoAdapter adapter = new VehiculeDispoAdapter(
                 this.getContext(),
                 R.layout.ligne_liste_vehicule,
                 vehicules);

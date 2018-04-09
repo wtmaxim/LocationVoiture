@@ -15,13 +15,13 @@ import com.example.administrateur.projet.R;
 
 import java.util.List;
 
-public class VehiculeAdapter extends ArrayAdapter<Vehicule> {
+public class VehiculeDispoAdapter extends ArrayAdapter<Vehicule> {
 
     private int layout;
 
-    public VehiculeAdapter(@NonNull Context context,
-                          int resource,
-                          @NonNull List<Vehicule> objects) {
+    public VehiculeDispoAdapter(@NonNull Context context,
+                                int resource,
+                                @NonNull List<Vehicule> objects) {
         super(context, resource, objects);
         this.layout = resource;
     }
