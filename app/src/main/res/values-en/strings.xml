@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Project</string>
+    <string name="hello_blank_fragment">hello</string>
+
+    <string name="nom">Name</string>
+    <string name="mdp">Password</string>
+    <string name="sign_in">Sign in</string>
+    <string name="sign_up">Sign up</string>
+
     <string name="siret">SIRET</string>
     <string name="raison_sociale">SOCIAL REASON</string>
     <string name="voie">STREET</string>

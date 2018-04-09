@@ -11,11 +11,9 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".Activite.InscriptionActivity"
-            android:label="@string/title_activity_inscription"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Activite.ConnexionActivity"
-            android:label="@string/title_activity_connexion"
             android:theme="@style/AppTheme.NoActionBar">
 
             <intent-filter>

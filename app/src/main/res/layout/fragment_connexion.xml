@@ -1,10 +1,12 @@
-<LinearLayout android:orientation="vertical" android:layout_height="match_parent" android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="nom"/>
+        android:text="@string/nom" />
 
     <EditText
         android:id="@+id/connexion_nom"
@@ -14,23 +16,23 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Mot de passe"/>
+        android:text="@string/mdp" />
 
     <EditText
         android:id="@+id/connexion_motDePasse"
-        android:inputType="textPassword"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:inputType="textPassword" />
 
     <Button
         android:id="@+id/connexion_bouton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="connexion"/>
+        android:text="@string/sign_in" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="inscription"/>
+        android:text="@string/sign_up" />
 
 </LinearLayout>

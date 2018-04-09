@@ -1,5 +1,12 @@
 <resources>
     <string name="app_name">Projet</string>
+    <string name="hello_blank_fragment">hello</string>
+
+    <string name="nom">Nom</string>
+    <string name="mdp">Mot de passe</string>
+    <string name="sign_in">Connexion</string>
+    <string name="sign_up">Inscription</string>
+
     <string name="siret">SIRET</string>
     <string name="raison_sociale">RAISON SOCIALE</string>
     <string name="voie">VOIE</string>
