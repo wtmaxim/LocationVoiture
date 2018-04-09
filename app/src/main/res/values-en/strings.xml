@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Project</string>
+    <string name="siret">SIRET</string>
+    <string name="raison_sociale">SOCIAL REASON</string>
+    <string name="voie">STREET</string>
+    <string name="cp">POSTAL CODE</string>
+    <string name="ville">CITY</string>
+    <string name="modifier_agence_button">Update</string>
+</resources>
