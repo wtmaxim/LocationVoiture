@@ -7,6 +7,7 @@ import java.io.Serializable;
  */
 
 public class Utilisateur {
+    private int id;
     private String nom;
     private String motDePasse;
 
@@ -14,9 +15,18 @@ public class Utilisateur {
 
     }
 
-    public Utilisateur(String nom, String motDePasse) {
+    public Utilisateur(int id, String nom, String motDePasse) {
+        this.id = id;
         this.nom = nom;
         this.motDePasse = motDePasse;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNom() {
@@ -38,7 +48,8 @@ public class Utilisateur {
     @Override
     public String toString() {
         return "Utilisateur{" +
-                "nom='" + nom + '\'' +
+                "id=" + id +
+                ", nom='" + nom + '\'' +
                 ", motDePasse='" + motDePasse + '\'' +
                 '}';
     }

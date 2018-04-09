@@ -10,8 +10,8 @@ public class LoginBouchon {
     private static List<Utilisateur> utilisateurList = new ArrayList<>();
 
     private static List<Utilisateur> getUtilisateurList() {
-        utilisateurList.add(new Utilisateur("Jean", "Jean"));
-        utilisateurList.add(new Utilisateur("Admin", "Admin"));
+        utilisateurList.add(new Utilisateur(1, "Jean", "Jean"));
+        utilisateurList.add(new Utilisateur(2, "Admin", "Admin"));
         return utilisateurList;
     }
 
