@@ -35,6 +35,7 @@ public class ConnexionFragment extends Fragment {
     EditText editTextMotDePasse;
     Utilisateur utilisateur;
     Button boutonConnexion;
+    Button boutonInscription;
 
     private OnFragmentInteractionListener mListener;
 
@@ -80,6 +81,7 @@ public class ConnexionFragment extends Fragment {
         editTextNom = view.findViewById(R.id.connexion_nom);
         editTextMotDePasse = view.findViewById(R.id.connexion_motDePasse);
         boutonConnexion = view.findViewById(R.id.connexion_bouton);
+        boutonInscription = view.findViewById(R.id.connexion_inscription_bouton);
 
         boutonConnexion.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,6 +92,13 @@ public class ConnexionFragment extends Fragment {
                 if(editTextNom.getText() != null || editTextMotDePasse.getText() != null) {
                     mListener.Connexion(utilisateur);
                 }
+            }
+        });
+
+        boutonInscription.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mListener.Inscription();
             }
         });
 

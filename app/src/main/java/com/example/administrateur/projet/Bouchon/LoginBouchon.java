@@ -27,4 +27,8 @@ public class LoginBouchon {
         }
         return null;
     }
+
+    private static void Insert(Utilisateur utilisateur) {
+        utilisateurList.add(utilisateur);
+    }
 }

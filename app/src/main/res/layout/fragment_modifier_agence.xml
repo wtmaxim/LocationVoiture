@@ -5,7 +5,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <EditText
-        android:id="@+id/siret"
+        android:id="@+id/modifier_agence_siret"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -13,7 +13,7 @@
         android:text="@string/siret"/>
 
     <EditText
-        android:id="@+id/raison_sociale"
+        android:id="@+id/modifier_agence_raison_sociale"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -21,7 +21,7 @@
         android:text="@string/raison_sociale"/>
 
     <EditText
-        android:id="@+id/voie"
+        android:id="@+id/modifier_agence_voie"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp"
@@ -29,7 +29,7 @@
         android:gravity="center" />
 
     <EditText
-        android:id="@+id/cp"
+        android:id="@+id/modifier_agence_cp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -37,7 +37,7 @@
         android:text="@string/cp"/>
 
     <EditText
-        android:id="@+id/ville"
+        android:id="@+id/modifier_agence_ville"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -45,7 +45,7 @@
         android:text="@string/ville"/>
 
     <Button
-        android:id="@+id/modifier"
+        android:id="@+id/modifier_agence_bouton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp"

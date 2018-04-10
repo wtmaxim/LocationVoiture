@@ -7,7 +7,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
+import com.example.administrateur.projet.BO.Agence;
 import com.example.administrateur.projet.R;
 
 
@@ -22,6 +25,14 @@ public class ModifierAgenceFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+    private EditText editTextSiret;
+    private EditText editTextRaisonSocial;
+    private EditText editTextVoie;
+    private EditText editTextCp;
+    private EditText editTextVille;
+    private Button buttonModifier;
+
+
 
     public ModifierAgenceFragment() {
         // Required empty public constructor
@@ -58,15 +69,38 @@ public class ModifierAgenceFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_modifier_agence, container, false);
+        View view = inflater.inflate(R.layout.fragment_modifier_agence, container, false);
+
+        editTextSiret = view.findViewById(R.id.modifier_agence_siret);
+        editTextRaisonSocial = view.findViewById(R.id.modifier_agence_raison_sociale);
+        editTextVoie = view.findViewById(R.id.modifier_agence_voie);
+        editTextCp = view.findViewById(R.id.modifier_agence_cp);
+        editTextVille = view.findViewById(R.id.modifier_agence_ville);
+        buttonModifier = view.findViewById(R.id.modifier_agence_bouton);
+
+        final String siret = editTextSiret.getText().toString();
+        final String raisonSocial = editTextRaisonSocial.getText().toString();
+        final String voie = editTextVoie.getText().toString();
+        final String cp = editTextCp.getText().toString();
+        final String ville = editTextVille.getText().toString();
+
+        buttonModifier.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Agence agence = new Agence();
+                agence.setSiret(siret);
+                agence.setRaisonSocial(raisonSocial);
+                agence.setVoie(voie);
+                agence.setCp(cp);
+                agence.setVile(ville);
+
+                mListener.Modifier(agence);
+            }
+        });
+
+        return view;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
 
     @Override
     public void onAttach(Context context) {
@@ -97,6 +131,6 @@ public class ModifierAgenceFragment extends Fragment {
      */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
+        void Modifier(Agence agence);
     }
 }

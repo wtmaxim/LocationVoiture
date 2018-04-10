@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.administrateur.projet.BO.Utilisateur;
 import com.example.administrateur.projet.R;
@@ -30,6 +32,12 @@ public class InscriptionFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+    private Button boutonConnexion;
+    private Button boutonInscription;
+    private EditText editTextNom;
+    private EditText editTextMotDePasse;
+    private EditText editTextConfirmationMotDePasse;
+    private EditText editTextToken;
 
     public InscriptionFragment() {
         // Required empty public constructor
@@ -66,7 +74,41 @@ public class InscriptionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_inscription, container, false);
+        View view = inflater.inflate(R.layout.fragment_inscription, container, false);
+
+        boutonConnexion = view.findViewById(R.id.inscription_connexion);
+        boutonInscription = view.findViewById(R.id.inscription_inscription);
+        editTextNom = view.findViewById(R.id.inscription_nom);
+        editTextMotDePasse = view.findViewById(R.id.inscription_motDePasse);
+        editTextConfirmationMotDePasse = view.findViewById(R.id.inscription_ConfirmationMotDePasse);
+        editTextToken = view.findViewById(R.id.inscription_token);
+
+        final String nom = editTextNom.getText().toString();
+        final String motDePasse = editTextMotDePasse.getText().toString();
+        final String confirmationMotDePasse = editTextConfirmationMotDePasse.getText().toString();
+        final String token = editTextToken.getText().toString();
+
+        boutonConnexion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mListener.Connexion();
+            }
+        });
+
+        boutonInscription.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(motDePasse == confirmationMotDePasse && token != "") {
+                    Utilisateur utilisateur = new Utilisateur();
+                    utilisateur.setNom(nom);
+                    utilisateur.setMotDePasse(motDePasse);
+
+                    mListener.Inscription(utilisateur);
+                }
+            }
+        });
+
+        return view;
     }
 
     @Override

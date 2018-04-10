@@ -8,11 +8,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import com.example.administrateur.projet.BL.LoginLogic;
 import com.example.administrateur.projet.BO.Utilisateur;
 import com.example.administrateur.projet.Fragment.InscriptionFragment;
 import com.example.administrateur.projet.R;
 
 public class InscriptionActivity extends AppCompatActivity implements InscriptionFragment.OnFragmentInteractionListener {
+    private LoginLogic loginLogic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +25,7 @@ public class InscriptionActivity extends AppCompatActivity implements Inscriptio
 
     @Override
     public void Inscription(Utilisateur utilisateur) {
-
+        loginLogic.Inscription(utilisateur);
     }
 
     @Override
