@@ -25,9 +25,9 @@ public class ModifierAgenceActivity extends AppCompatActivity implements Modifie
     @Override
     protected void onResume() {
         super.onResume();
-        utilisateur;
+        //utilisateur;
 
-        fragment.getUtilisateur(utilisateur);
+        //fragment.getUtilisateur(utilisateur);
     }
 
     @Override

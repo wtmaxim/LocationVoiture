@@ -5,4 +5,10 @@ package com.example.administrateur.projet.BO;
  */
 
 public class FicheRendu {
+    private int id;
+    private Location location;
+    private boolean estEndommage;
+    private boolean estPleinEffectue;
+    private int nbKmEffectue;
+    private String photo;
 }
