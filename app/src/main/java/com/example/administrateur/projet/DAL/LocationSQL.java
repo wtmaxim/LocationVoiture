@@ -5,4 +5,9 @@ package com.example.administrateur.projet.DAL;
  */
 
 public class LocationSQL {
+
+   /* public static List<Location> locations() {
+        LocationBouchon locationBouchon = new LocationBouchon();
+        return locationBouchon.getVehiculesDisponibles();
+    }*/
 }

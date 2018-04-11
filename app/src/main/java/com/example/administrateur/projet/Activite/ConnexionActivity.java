@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import com.example.administrateur.projet.BL.LoginLogic;
 import com.example.administrateur.projet.BO.Utilisateur;
 import com.example.administrateur.projet.Fragment.ConnexionFragment;
 import com.example.administrateur.projet.R;
@@ -18,7 +19,7 @@ import com.example.administrateur.projet.Service.LoginService;
 
 public class ConnexionActivity extends AppCompatActivity implements ConnexionFragment.OnFragmentInteractionListener {
     private LoginService loginService;
-    private Utilisateur utilisateur2;
+    private LoginLogic loginLogic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +29,12 @@ public class ConnexionActivity extends AppCompatActivity implements ConnexionFra
 
     @Override
     public void Connexion(Utilisateur utilisateur) {
-        Intent intent = new Intent(ConnexionActivity.this, LoginService.class);
-        utilisateur2 = utilisateur;
-        bindService(intent, serviceConnection, BIND_AUTO_CREATE);
+        Utilisateur utilisateur1 = loginLogic.Connexion(utilisateur);
+        Intent intent = new Intent(ConnexionActivity.this, MenuActivity.class);
+        intent.putExtra("id", utilisateur1.getId());
+        startActivity(intent);
+        //utilisateur2 = utilisateur;
+        //bindService(intent, serviceConnection, BIND_AUTO_CREATE);
     }
 
     @Override
@@ -39,7 +43,7 @@ public class ConnexionActivity extends AppCompatActivity implements ConnexionFra
         startActivity(intent);
     }
 
-    private ServiceConnection serviceConnection = new ServiceConnection() {
+    /*private ServiceConnection serviceConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             loginService = ((LoginService.LoginServiceBinder) iBinder).getService();
@@ -50,5 +54,5 @@ public class ConnexionActivity extends AppCompatActivity implements ConnexionFra
         public void onServiceDisconnected(ComponentName componentName) {
 
         }
-    };
+    };*/
 }

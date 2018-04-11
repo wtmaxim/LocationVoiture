@@ -7,25 +7,19 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ListView;
+import android.widget.Button;
 
-import com.example.administrateur.projet.Adapter.LocationAdapter;
-import com.example.administrateur.projet.Adapter.VehiculeDispoAdapter;
-import com.example.administrateur.projet.BO.Vehicule;
 import com.example.administrateur.projet.R;
-
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link VehiculesLouesFragment.OnFragmentInteractionListener} interface
+ * {@link MenuFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link VehiculesLouesFragment#newInstance} factory method to
+ * Use the {@link MenuFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class VehiculesLouesFragment extends Fragment {
+public class MenuFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -36,9 +30,12 @@ public class VehiculesLouesFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
-    private List<Vehicule> vehicules;
+    private Button buttonModifierAgence;
+    private Button buttonListeVehiculeDispo;
+    private Button buttonListeVehiculeLoue;
 
-    public VehiculesLouesFragment() {
+
+    public MenuFragment() {
         // Required empty public constructor
     }
 
@@ -48,11 +45,11 @@ public class VehiculesLouesFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment VehiculesLouesFragment.
+     * @return A new instance of fragment MenuFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static VehiculesLouesFragment newInstance(String param1, String param2) {
-        VehiculesLouesFragment fragment = new VehiculesLouesFragment();
+    public static MenuFragment newInstance(String param1, String param2) {
+        MenuFragment fragment = new MenuFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -73,35 +70,34 @@ public class VehiculesLouesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_vehicules_loues, container, false);
+        View view = inflater.inflate(R.layout.fragment_menu, container, false);
 
-        ListView vehiculesLoue = view.findViewById(R.id.listview_vehicules_loue);
-        vehiculesLoue.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        buttonModifierAgence = view.findViewById(R.id.menu_modifier_agence);
+        buttonListeVehiculeDispo = view.findViewById(R.id.menu_liste_vehicule_dispo);
+        buttonListeVehiculeLoue = view.findViewById(R.id.menu_liste_vehicule_loue);
+
+        buttonListeVehiculeDispo.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                if(vehicules != null) {
-                    mListener.clickVehicule(vehicules.get(position));
-                }
+            public void onClick(View view) {
+                mListener.listeVehiculeDispo();
+            }
+        });
+
+        buttonModifierAgence.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mListener.modifierAgence();
+            }
+        });
+
+        buttonListeVehiculeLoue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mListener.listeVehiculeLoue();
             }
         });
 
         return view;
-    }
-
-    public void setList(List<Vehicule> vehicules) {
-        ListView listeViewVehicules = this.getView().findViewById(R.id.listview_vehicules_loue);
-        VehiculeDispoAdapter adapter = new VehiculeDispoAdapter(
-                this.getContext(),
-                R.layout.ligne_liste_vehicule,
-                vehicules);
-        listeViewVehicules.setAdapter(adapter);
-    }
-
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
     }
 
     @Override
@@ -133,7 +129,8 @@ public class VehiculesLouesFragment extends Fragment {
      */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
-        void clickVehicule(Vehicule vehicule);
+        void listeVehiculeDispo();
+        void modifierAgence();
+        void listeVehiculeLoue();
     }
 }

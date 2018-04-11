@@ -1,16 +1,17 @@
 package com.example.administrateur.projet.BL;
 
 import com.example.administrateur.projet.BO.Utilisateur;
-import com.example.administrateur.projet.DAL.LoginEngine;
+import com.example.administrateur.projet.DAL.UtilisateurEngine;
 
 public class LoginLogic {
-    private LoginEngine loginEngine;
+    private static UtilisateurEngine utilisateurEngine;
 
-    public void Connexion(Utilisateur utilisateur) {
-        Utilisateur utilisateurRetour = loginEngine.Connexion(utilisateur);
+    public static Utilisateur Connexion(Utilisateur utilisateur) {
+        Utilisateur utilisateurRetour = utilisateurEngine.Connexion(utilisateur);
+        return utilisateurRetour;
     }
 
     public void Inscription(Utilisateur utilisateur) {
-        loginEngine.Inscription(utilisateur);
+        utilisateurEngine.Inscription(utilisateur);
     }
 }

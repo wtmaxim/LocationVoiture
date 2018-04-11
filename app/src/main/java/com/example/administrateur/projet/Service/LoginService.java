@@ -8,7 +8,7 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 
 import com.example.administrateur.projet.BO.Utilisateur;
-import com.example.administrateur.projet.DAL.LoginEngine;
+import com.example.administrateur.projet.DAL.UtilisateurEngine;
 
 public class LoginService extends Service {
     private IBinder binder;
@@ -28,8 +28,8 @@ public class LoginService extends Service {
     }
 
     public void Event(Utilisateur utilisateur) {
-        LoginEngine loginEngine = new LoginEngine();
-        Utilisateur retour = loginEngine.Connexion(utilisateur);
+        UtilisateurEngine utilisateurEngine = new UtilisateurEngine();
+        Utilisateur retour = utilisateurEngine.Connexion(utilisateur);
         Log.i(LoginService.class.getName(), retour.toString());
     }
 }

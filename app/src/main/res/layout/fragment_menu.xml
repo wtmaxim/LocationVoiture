@@ -1,0 +1,22 @@
+<LinearLayout android:layout_width="match_parent" android:orientation="vertical" android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <Button
+        android:id="@+id/menu_modifier_agence"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Modifier agence"/>
+
+    <Button
+        android:id="@+id/menu_liste_vehicule_dispo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Liste vehicule dispo"/>
+
+    <Button
+        android:id="@+id/menu_liste_vehicule_loue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Liste vehicule loue"/>
+
+</LinearLayout>

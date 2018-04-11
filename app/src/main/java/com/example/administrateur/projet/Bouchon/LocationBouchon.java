@@ -45,11 +45,12 @@ public class LocationBouchon implements ILocation {
     }
 
     private List<Vehicule> getVehicules(Boolean estLoue) {
+        List<Vehicule> newList = new ArrayList<>();
         for (Vehicule v : getDataVehicules()) {
             if (v.isEstLoue() == estLoue) {
-                vehicules.remove(v);
+                newList.add(v);
             }
         }
-        return vehicules;
+        return newList;
     }
 }

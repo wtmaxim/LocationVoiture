@@ -10,15 +10,17 @@ public class Utilisateur {
     private int id;
     private String nom;
     private String motDePasse;
+    Agence agence;
 
     public Utilisateur() {
 
     }
 
-    public Utilisateur(int id, String nom, String motDePasse) {
+    public Utilisateur(int id, String nom, String motDePasse, Agence agence) {
         this.id = id;
         this.nom = nom;
         this.motDePasse = motDePasse;
+        this.agence = agence;
     }
 
     public int getId() {
@@ -45,12 +47,21 @@ public class Utilisateur {
         this.motDePasse = motDePasse;
     }
 
+    public Agence getAgence() {
+        return agence;
+    }
+
+    public void setAgence(Agence agence) {
+        this.agence = agence;
+    }
+
     @Override
     public String toString() {
         return "Utilisateur{" +
                 "id=" + id +
                 ", nom='" + nom + '\'' +
                 ", motDePasse='" + motDePasse + '\'' +
+                ", agence=" + agence +
                 '}';
     }
 }

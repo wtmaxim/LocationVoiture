@@ -26,6 +26,8 @@ public class InscriptionActivity extends AppCompatActivity implements Inscriptio
     @Override
     public void Inscription(Utilisateur utilisateur) {
         loginLogic.Inscription(utilisateur);
+        Intent intent = new Intent(InscriptionActivity.this, ConnexionActivity.class);
+        startActivity(intent);
     }
 
     @Override

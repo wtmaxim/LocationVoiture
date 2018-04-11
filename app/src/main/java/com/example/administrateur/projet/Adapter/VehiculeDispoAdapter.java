@@ -36,6 +36,7 @@ public class VehiculeDispoAdapter extends ArrayAdapter<Vehicule> {
                     getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(this.layout, parent, false);
         }
+        Vehicule vehicule = this.getItem(position);
 
         TextView vehiculeId = convertView.findViewById(R.id.ligne_liste_vehicule_id);
         TextView vehiculeLibelle = convertView.findViewById(R.id.ligne_liste_vehicule_libelle);
@@ -45,11 +46,9 @@ public class VehiculeDispoAdapter extends ArrayAdapter<Vehicule> {
         TextView tarifMin = convertView.findViewById(R.id.ligne_liste_vehicule_tarifMin);
         TextView tarifMax = convertView.findViewById(R.id.ligne_liste_vehicule_tarifMax);
 
-        Vehicule vehicule = this.getItem(position);
-
-        vehiculeId.setText(vehicule.getId());
+        vehiculeId.setText(String.valueOf(vehicule.getId()));
         vehiculeLibelle.setText(vehicule.getLibelle());
-        nbPlaces.setText(vehicule.getNbPlaces());
+        nbPlaces.setText(String.valueOf(vehicule.getNbPlaces()));
         locationMin.setText(String.valueOf(vehicule.getDureeMin()));
         locationMax.setText(String.valueOf(vehicule.getDureeMax()));
         tarifMin.setText(String.valueOf(vehicule.getTariffMin()));
