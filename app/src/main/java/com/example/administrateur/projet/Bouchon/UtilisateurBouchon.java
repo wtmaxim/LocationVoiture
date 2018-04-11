@@ -16,14 +16,12 @@ public class UtilisateurBouchon {
         return utilisateurList;
     }
 
-    public static Utilisateur getOneUser(Utilisateur utilisateur) {
+    public static Utilisateur getOneUser(int id) {
         List<Utilisateur> utilisateurList = getUtilisateurList();
-        Utilisateur utilisateurRetour;
 
         for (Utilisateur item : utilisateurList) {
-            if(utilisateurList.contains(item)) {
-                utilisateurRetour = item;
-                return utilisateurRetour;
+            if(item.getId() == id) {
+                return item;
             }
         }
         return null;
