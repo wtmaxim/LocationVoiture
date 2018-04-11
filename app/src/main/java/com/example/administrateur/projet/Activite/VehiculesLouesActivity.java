@@ -15,14 +15,14 @@ import com.example.administrateur.projet.R;
 import java.util.List;
 
 public class VehiculesLouesActivity extends AppCompatActivity implements VehiculesLouesFragment.OnFragmentInteractionListener {
-    private VehiculesLouesFragment fragment;
+    private VehiculesDisponiblesFragment fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vehicules_loues);
 
-        this.fragment = (VehiculesLouesFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_vehicule_dispo);
+        this.fragment = (VehiculesDisponiblesFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_vehicule_dispo);
 
         new ListAsyncTask().execute();
     }

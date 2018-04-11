@@ -30,6 +30,7 @@ public class MenuActivity extends AppCompatActivity implements MenuFragment.OnFr
     @Override
     public void listeVehiculeDispo() {
         Intent intent = new Intent(MenuActivity.this, VehiculesDisponiblesActivity.class);
+        intent.putExtra("id", id);
         startActivity(intent);
     }
 
@@ -43,6 +44,7 @@ public class MenuActivity extends AppCompatActivity implements MenuFragment.OnFr
     @Override
     public void listeVehiculeLoue() {
         Intent intent = new Intent(MenuActivity.this, VehiculesLouesActivity.class);
+        intent.putExtra("id", id);
         startActivity(intent);
     }
 }

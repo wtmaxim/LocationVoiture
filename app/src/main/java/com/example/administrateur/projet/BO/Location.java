@@ -9,9 +9,11 @@ import java.util.Date;
 public class Location {
     private int id;
     private Vehicule vehicule;
+    private Agence agence;
     private Date dateDebut;
     private Date dateFin;
     private float tarif;
+
 
     public Location() {
     }
