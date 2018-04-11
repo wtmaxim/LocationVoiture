@@ -7,8 +7,7 @@ public class LoginLogic {
     private static UtilisateurEngine utilisateurEngine;
 
     public static Utilisateur Connexion(Utilisateur utilisateur) {
-        Utilisateur utilisateurRetour = utilisateurEngine.Connexion(utilisateur);
-        return utilisateurRetour;
+        return utilisateurEngine.getUtilisateur(utilisateur);
     }
 
     public void Inscription(Utilisateur utilisateur) {

@@ -28,8 +28,8 @@ public class LoginService extends Service {
     }
 
     public void Event(Utilisateur utilisateur) {
-        UtilisateurEngine utilisateurEngine = new UtilisateurEngine();
+      /*  UtilisateurEngine utilisateurEngine = new UtilisateurEngine();
         Utilisateur retour = utilisateurEngine.Connexion(utilisateur);
-        Log.i(LoginService.class.getName(), retour.toString());
+        Log.i(LoginService.class.getName(), retour.toString());*/
     }
 }

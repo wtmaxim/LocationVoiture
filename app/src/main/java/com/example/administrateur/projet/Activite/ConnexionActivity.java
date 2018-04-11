@@ -30,11 +30,12 @@ public class ConnexionActivity extends AppCompatActivity implements ConnexionFra
     @Override
     public void Connexion(Utilisateur utilisateur) {
         Utilisateur utilisateur1 = loginLogic.Connexion(utilisateur);
-        Intent intent = new Intent(ConnexionActivity.this, MenuActivity.class);
-        intent.putExtra("id", utilisateur1.getId());
-        startActivity(intent);
-        //utilisateur2 = utilisateur;
-        //bindService(intent, serviceConnection, BIND_AUTO_CREATE);
+
+        if (utilisateur1 != null) {
+            Intent intent = new Intent(ConnexionActivity.this, MenuActivity.class);
+            intent.putExtra("id", utilisateur1.getId());
+            startActivity(intent);
+        }
     }
 
     @Override
