@@ -101,10 +101,10 @@ public class InscriptionFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Utilisateur utilisateur = new Utilisateur();
-                    utilisateur.setId(1 + (int)(Math.random() * 2147483647));
+                    /*utilisateur.setId(1 + (int)(Math.random() * 2147483647));
                     utilisateur.setNom(editTextNom.getText().toString());
                     utilisateur.setMotDePasse(editTextMotDePasse.getText().toString());
-                    utilisateur.setAgenceId(1);
+                    utilisateur.setAgenceId(1);*/
 
                     mListener.Inscription(utilisateur);
             }

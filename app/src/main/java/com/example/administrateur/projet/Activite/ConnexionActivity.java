@@ -2,15 +2,17 @@ package com.example.administrateur.projet.Activite;
 
 import android.content.ComponentName;
 import android.content.Intent;
-import android.content.ServiceConnection;
 import android.os.Bundle;
-import android.os.IBinder;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
+import android.util.Log;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.administrateur.projet.BL.AgenceLogic;
 import com.example.administrateur.projet.BL.LocationLogic;
 import com.example.administrateur.projet.BL.LoginLogic;
@@ -20,6 +22,12 @@ import com.example.administrateur.projet.BO.Utilisateur;
 import com.example.administrateur.projet.Fragment.ConnexionFragment;
 import com.example.administrateur.projet.R;
 import com.example.administrateur.projet.Service.LoginService;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class ConnexionActivity extends AppCompatActivity implements ConnexionFragment.OnFragmentInteractionListener {
     private LoginService loginService;
@@ -36,7 +44,37 @@ public class ConnexionActivity extends AppCompatActivity implements ConnexionFra
 
     @Override
     public void Connexion(Utilisateur utilisateur) {
-        Utilisateur utilisateur1 = loginLogic.Connexion(utilisateur);
+        final String URL = "http://10.0.2.2:8080/connect";
+
+        // Post params to be sent to the server
+        HashMap<String, String> params = new HashMap<String, String>();
+        params.put("mail", "test2@icysoft.fr");
+        params.put("password", "azerty");
+
+        JsonObjectRequest req = new JsonObjectRequest(URL, new JSONObject(params),
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            String agenceId = response.getString("agenceID");
+                            String userId = response.getString("userID");
+                            //String error = response.getString("error");
+                            Log.i("vallue !!", agenceId);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.i("Error: ", error.getMessage() == null ? "" : error.getMessage());
+            }
+        });
+
+        RequestQueue queue = Volley.newRequestQueue(ConnexionActivity.this);
+        queue.add(req);
+
+       /* Utilisateur utilisateur1 = loginLogic.Connexion(utilisateur);
 
         agenceLogic.setAgences();
         locationLogic.setLocations();
@@ -46,7 +84,7 @@ public class ConnexionActivity extends AppCompatActivity implements ConnexionFra
             Intent intent = new Intent(ConnexionActivity.this, MenuActivity.class);
             intent.putExtra("id", utilisateur1.getId());
             startActivity(intent);
-        }
+        } */
     }
 
     @Override

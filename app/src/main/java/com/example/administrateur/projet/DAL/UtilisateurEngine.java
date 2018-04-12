@@ -12,13 +12,13 @@ import java.util.List;
 
 @Dao
 public interface UtilisateurEngine {
-
+/*
     @Insert
     void insert(Utilisateur utilisateur);
 
     @Query("SELECT * FROM utilisateur WHERE mail = (:mail) AND password = (:password) LIMIT 1")
     Utilisateur getById(String mail, String password);
-
+*/
     /*public static Utilisateur getUtilisateur(Utilisateur utilisateur) {
         List<Utilisateur> utilisateurList = UtilisateurBouchon.getUtilisateurList();
 

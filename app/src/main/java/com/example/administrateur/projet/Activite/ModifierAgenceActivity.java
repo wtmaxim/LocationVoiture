@@ -34,7 +34,7 @@ public class ModifierAgenceActivity extends AppCompatActivity implements Modifie
         int id = intent.getIntExtra("id", -1);
 
         utilisateur = loginLogic.getUtilisateurById(id);
-        Agence agence = agenceLogic.getAgencebyId(utilisateur.getAgenceId());
+        Agence agence = null; //agenceLogic.getAgencebyId(utilisateur.getAgenceId());
 
         fragment.setAgence(agence);
     }

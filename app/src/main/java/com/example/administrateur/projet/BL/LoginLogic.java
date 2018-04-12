@@ -7,14 +7,16 @@ public class LoginLogic {
     private static UtilisateurEngine utilisateurEngine;
 
     public static Utilisateur Connexion(Utilisateur utilisateur) {
-        return utilisateurEngine.getUtilisateur(utilisateur);
+        //return utilisateurEngine.getUtilisateur(utilisateur);
+        return null;
     }
 
     public static void Inscription(Utilisateur utilisateur) {
-        utilisateurEngine.insert(utilisateur);
+        //utilisateurEngine.insert(utilisateur);
     }
 
     public static Utilisateur getUtilisateurById(int id) {
-        return utilisateurEngine.getUtilisateurById(id);
+        //return utilisateurEngine.getUtilisateurById(id);
+        return null;
     }
 }

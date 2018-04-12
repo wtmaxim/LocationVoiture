@@ -9,7 +9,7 @@ import com.example.administrateur.projet.Bouchon.LocationBouchon;
 
 public class LocationEngine {
     public static void setLocation() {
-        LocationBouchon.setDataVehicules();
+        //LocationBouchon.setDataVehicules();
     }
 
 }

@@ -44,7 +44,7 @@ public class LouerVehiculeActivity extends AppCompatActivity implements LouerVeh
 
         vehicule = VehiculeLogic.getVehiculebyId(idVehicule);
         utilisateur = LoginLogic.getUtilisateurById(idUtilisateur);
-        agence = AgenceLogic.getAgencebyId(utilisateur.getAgenceId());
+        agence = null;//AgenceLogic.getAgencebyId(utilisateur.getAgenceId());
 
         fragment.setVehicule(vehicule, utilisateur);
     }
