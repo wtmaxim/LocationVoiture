@@ -1,33 +1,49 @@
 package com.example.administrateur.projet.BO;
 
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
+import android.arch.persistence.room.PrimaryKey;
+
 import java.io.Serializable;
 
 /**
  * Created by Administrateur on 09/04/2018.
  */
 
+@Entity(tableName = "users")
 public class Utilisateur {
-    private int id;
+
+    @PrimaryKey
+    @ColumnInfo(name = "user_id")
+    private String id;
+
+    @ColumnInfo(name = "mail")
     private String nom;
+
+    @ColumnInfo(name = "password")
     private String motDePasse;
-    Agence agence;
+
+    @ColumnInfo(name = "agence_id")
+    private String agenceId;
 
     public Utilisateur() {
 
     }
 
-    public Utilisateur(int id, String nom, String motDePasse, Agence agence) {
+    @Ignore
+    public Utilisateur(String id, String nom, String motDePasse, String agenceId) {
         this.id = id;
         this.nom = nom;
         this.motDePasse = motDePasse;
-        this.agence = agence;
+        this.agenceId = agenceId;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -47,21 +63,9 @@ public class Utilisateur {
         this.motDePasse = motDePasse;
     }
 
-    public Agence getAgence() {
-        return agence;
-    }
+    public String getAgenceId() { return agenceId; }
 
-    public void setAgence(Agence agence) {
-        this.agence = agence;
-    }
-
-    @Override
-    public String toString() {
-        return "Utilisateur{" +
-                "id=" + id +
-                ", nom='" + nom + '\'' +
-                ", motDePasse='" + motDePasse + '\'' +
-                ", agence=" + agence +
-                '}';
+    public void setAgenceId(String agenceId) {
+        this.agenceId = agenceId;
     }
 }

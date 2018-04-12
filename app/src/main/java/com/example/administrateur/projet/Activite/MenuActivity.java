@@ -10,7 +10,7 @@ import com.example.administrateur.projet.R;
 
 public class MenuActivity extends AppCompatActivity implements MenuFragment.OnFragmentInteractionListener {
 
-    String id;
+    int id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +23,7 @@ public class MenuActivity extends AppCompatActivity implements MenuFragment.OnFr
     protected void onResume() {
         super.onResume();
 
-        Intent intent = getIntent();
-        id = intent.getStringExtra("id");
+        id = getIntent().getIntExtra("id", -1);
     }
 
     @Override

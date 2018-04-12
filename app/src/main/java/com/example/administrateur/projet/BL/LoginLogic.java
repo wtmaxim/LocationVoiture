@@ -10,7 +10,11 @@ public class LoginLogic {
         return utilisateurEngine.getUtilisateur(utilisateur);
     }
 
-    public void Inscription(Utilisateur utilisateur) {
-        utilisateurEngine.Inscription(utilisateur);
+    public static void Inscription(Utilisateur utilisateur) {
+        utilisateurEngine.insert(utilisateur);
+    }
+
+    public static Utilisateur getUtilisateurById(int id) {
+        return utilisateurEngine.getUtilisateurById(id);
     }
 }

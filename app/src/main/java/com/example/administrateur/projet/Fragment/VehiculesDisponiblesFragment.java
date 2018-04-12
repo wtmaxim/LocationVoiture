@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.administrateur.projet.Adapter.VehiculeDispoAdapter;
@@ -74,12 +75,14 @@ public class VehiculesDisponiblesFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_vehicules_disponibles, container, false);
 
-        ListView vehiculesDispo = view.findViewById(R.id.listview_vehicules_dispo);
+        final ListView vehiculesDispo = view.findViewById(R.id.listview_vehicules_dispo);
+
         vehiculesDispo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 if(vehicules != null) {
-                    mListener.clickVehicule(vehicules.get(position));
+                    //mListener.clickVehicule(vehicules.get(position));
+                    mListener.clickVehicule((Vehicule) vehiculesDispo.getAdapter().getItem(position));
                 }
             }
         });
@@ -88,6 +91,7 @@ public class VehiculesDisponiblesFragment extends Fragment {
     }
 
     public void setList(List<Vehicule> vehicules) {
+        this.vehicules = vehicules;
         ListView listeViewVehicules = this.getView().findViewById(R.id.listview_vehicules_dispo);
         VehiculeDispoAdapter adapter = new VehiculeDispoAdapter(
                 this.getContext(),

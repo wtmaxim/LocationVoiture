@@ -13,6 +13,9 @@ import android.widget.EditText;
 import com.example.administrateur.projet.BO.Utilisateur;
 import com.example.administrateur.projet.R;
 
+import java.sql.Time;
+import java.sql.Timestamp;
+
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
@@ -38,6 +41,10 @@ public class InscriptionFragment extends Fragment {
     private EditText editTextMotDePasse;
     private EditText editTextConfirmationMotDePasse;
     private EditText editTextToken;
+    private String nom;
+    private String motDePasse;
+    private String confirmationMotDePasse;
+    private String token;
 
     public InscriptionFragment() {
         // Required empty public constructor
@@ -83,11 +90,6 @@ public class InscriptionFragment extends Fragment {
         editTextConfirmationMotDePasse = view.findViewById(R.id.inscription_ConfirmationMotDePasse);
         editTextToken = view.findViewById(R.id.inscription_token);
 
-        final String nom = editTextNom.getText().toString();
-        final String motDePasse = editTextMotDePasse.getText().toString();
-        final String confirmationMotDePasse = editTextConfirmationMotDePasse.getText().toString();
-        final String token = editTextToken.getText().toString();
-
         boutonConnexion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -98,13 +100,13 @@ public class InscriptionFragment extends Fragment {
         boutonInscription.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(motDePasse == confirmationMotDePasse && token != "") {
-                    Utilisateur utilisateur = new Utilisateur();
-                    utilisateur.setNom(nom);
-                    utilisateur.setMotDePasse(motDePasse);
+                Utilisateur utilisateur = new Utilisateur();
+                    utilisateur.setId(1 + (int)(Math.random() * 2147483647));
+                    utilisateur.setNom(editTextNom.getText().toString());
+                    utilisateur.setMotDePasse(editTextMotDePasse.getText().toString());
+                    utilisateur.setAgenceId(1);
 
                     mListener.Inscription(utilisateur);
-                }
             }
         });
 

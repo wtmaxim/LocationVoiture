@@ -7,8 +7,15 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
+import com.example.administrateur.projet.BO.Location;
+import com.example.administrateur.projet.BO.Utilisateur;
+import com.example.administrateur.projet.BO.Vehicule;
 import com.example.administrateur.projet.R;
+
+import java.sql.Date;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,6 +36,12 @@ public class LouerVehiculeFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+    Vehicule vehicule;
+    Utilisateur utilisateur;
+    Button buttonReserver;
+    EditText editTextDateDebut;
+    EditText editTextDateFin;
+    EditText editTextTarif;
 
     public LouerVehiculeFragment() {
         // Required empty public constructor
@@ -65,14 +78,36 @@ public class LouerVehiculeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_louer_vehicule, container, false);
+        View view = inflater.inflate(R.layout.fragment_louer_vehicule, container, false);
+
+        editTextDateDebut = view.findViewById(R.id.louer_vehicule_dateDebut);
+        editTextDateFin = view.findViewById(R.id.louer_vehicule_dateFin);
+        editTextTarif = view.findViewById(R.id.louer_vehicule_tarif);
+        buttonReserver = view.findViewById(R.id.louer_vehicule_reserver);
+
+        buttonReserver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Location reservation = new Location();
+
+                reservation.setDateDebut(Date.valueOf(editTextDateDebut.getText().toString()));
+                reservation.setDateFin(Date.valueOf(editTextDateFin.getText().toString()));
+                reservation.setTarif(Float.parseFloat(editTextTarif.getText().toString()));
+                reservation.setVehiculeId(String.valueOf(vehicule.getId()));
+                reservation.setAgenceId(String.valueOf(utilisateur.getAgenceId()));
+
+                mListener.reserver(reservation);
+            }
+        });
+
+        return view;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
+    public void setVehicule(Vehicule vehicule, Utilisateur utilisateur) {
+        this.vehicule = vehicule;
+        this.utilisateur = utilisateur;
+
+
     }
 
     @Override
@@ -104,6 +139,6 @@ public class LouerVehiculeFragment extends Fragment {
      */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
+        void reserver(Location location);
     }
 }

@@ -24,12 +24,7 @@ public class VehiculesLouesActivity extends AppCompatActivity implements Vehicul
 
         this.fragment = (VehiculesDisponiblesFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_vehicule_dispo);
 
-        new ListAsyncTask().execute();
-    }
-
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-
+        //new ListAsyncTask().execute();
     }
 
     @Override

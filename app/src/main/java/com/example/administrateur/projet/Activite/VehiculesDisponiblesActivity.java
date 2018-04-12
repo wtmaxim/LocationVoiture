@@ -1,5 +1,6 @@
 package com.example.administrateur.projet.Activite;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import java.util.List;
 
 public class VehiculesDisponiblesActivity extends AppCompatActivity implements VehiculesDisponiblesFragment.OnFragmentInteractionListener{
     private VehiculesDisponiblesFragment fragment;
+    private int idUtilisateur;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,8 +27,19 @@ public class VehiculesDisponiblesActivity extends AppCompatActivity implements V
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+
+        idUtilisateur = getIntent().getIntExtra("id", -1);
+    }
+
+    @Override
     public void clickVehicule(Vehicule vehicule) {
 
+        Intent intent = new Intent(VehiculesDisponiblesActivity.this, LouerVehiculeActivity.class);
+        intent.putExtra("idVehicule", vehicule.getId());
+        intent.putExtra("idUtilisateur", idUtilisateur);
+        startActivity(intent);
     }
 
     private class ListAsyncTask extends AsyncTask<Void, Integer, Void>

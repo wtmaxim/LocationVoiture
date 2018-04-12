@@ -97,13 +97,6 @@ public class VehiculesLouesFragment extends Fragment {
         listeViewVehicules.setAdapter(adapter);
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
-
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -133,7 +126,6 @@ public class VehiculesLouesFragment extends Fragment {
      */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
         void clickVehicule(Vehicule vehicule);
     }
 }

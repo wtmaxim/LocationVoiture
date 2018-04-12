@@ -8,22 +8,23 @@ import java.util.Date;
 
 public class Location {
     private int id;
-    private Vehicule vehicule;
-    private Agence agence;
     private Date dateDebut;
     private Date dateFin;
     private float tarif;
+    private String agenceId;
+    private String vehiculeId;
 
 
     public Location() {
     }
 
-    public Location(int id, Vehicule vehicule, Date dateDebut, Date dateFin, float tarif) {
+    public Location(int id, Date dateDebut, Date dateFin, float tarif, String agenceId, String vehiculeId) {
         this.id = id;
-        this.vehicule = vehicule;
         this.dateDebut = dateDebut;
         this.dateFin = dateFin;
         this.tarif = tarif;
+        this.agenceId = agenceId;
+        this.vehiculeId = vehiculeId;
     }
 
     public int getId() {
@@ -32,14 +33,6 @@ public class Location {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public Vehicule getVehicule() {
-        return vehicule;
-    }
-
-    public void setVehicule(Vehicule vehicule) {
-        this.vehicule = vehicule;
     }
 
     public Date getDateDebut() {
@@ -64,5 +57,21 @@ public class Location {
 
     public void setTarif(float tarif) {
         this.tarif = tarif;
+    }
+
+    public String getAgenceId() {
+        return agenceId;
+    }
+
+    public void setAgenceId(String agenceId) {
+        this.agenceId = agenceId;
+    }
+
+    public String getVehiculeId() {
+        return vehiculeId;
+    }
+
+    public void setVehiculeId(String vehiculeId) {
+        this.vehiculeId = vehiculeId;
     }
 }

@@ -32,6 +32,8 @@ public class ModifierAgenceFragment extends Fragment {
     private EditText editTextVille;
     private Button buttonModifier;
 
+    private Agence agenceP;
+
 
 
     public ModifierAgenceFragment() {
@@ -78,21 +80,16 @@ public class ModifierAgenceFragment extends Fragment {
         editTextVille = view.findViewById(R.id.modifier_agence_ville);
         buttonModifier = view.findViewById(R.id.modifier_agence_bouton);
 
-        final String siret = editTextSiret.getText().toString();
-        final String raisonSocial = editTextRaisonSocial.getText().toString();
-        final String voie = editTextVoie.getText().toString();
-        final String cp = editTextCp.getText().toString();
-        final String ville = editTextVille.getText().toString();
-
         buttonModifier.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Agence agence = new Agence();
-                agence.setSiret(siret);
-                agence.setRaisonSocial(raisonSocial);
-                agence.setVoie(voie);
-                agence.setCp(cp);
-                agence.setVile(ville);
+                agence.setId(agenceP.getId());
+                agence.setSiret(editTextSiret.getText().toString());
+                agence.setRaisonSocial(editTextRaisonSocial.getText().toString());
+                agence.setVoie(editTextVoie.getText().toString());
+                agence.setCp(editTextCp.getText().toString());
+                agence.setVile(editTextVille.getText().toString());
 
                 mListener.Modifier(agence);
             }
@@ -101,6 +98,15 @@ public class ModifierAgenceFragment extends Fragment {
         return view;
     }
 
+    public void setAgence(Agence agence) {
+        agenceP = agence;
+
+        editTextSiret.setText(agence.getSiret());
+        editTextRaisonSocial.setText(agence.getRaisonSocial());
+        editTextVoie.setText(agence.getVoie());
+        editTextCp.setText(agence.getCp());
+        editTextVille.setText(agence.getVoie());
+    }
 
     @Override
     public void onAttach(Context context) {
