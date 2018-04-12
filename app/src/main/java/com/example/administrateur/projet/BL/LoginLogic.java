@@ -3,6 +3,9 @@ package com.example.administrateur.projet.BL;
 import com.example.administrateur.projet.BO.Utilisateur;
 import com.example.administrateur.projet.DAL.UtilisateurEngine;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class LoginLogic {
     private static UtilisateurEngine utilisateurEngine;
 
@@ -18,5 +21,17 @@ public class LoginLogic {
     public static Utilisateur getUtilisateurById(int id) {
         //return utilisateurEngine.getUtilisateurById(id);
         return null;
+    }
+
+    public static JSONObject boToJson(Utilisateur utilisateur) {
+        JSONObject jsonObject = new JSONObject();
+
+        try {
+            jsonObject.put("mail", utilisateur.getNom());
+            jsonObject.put("password", utilisateur.getMotDePasse());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return jsonObject;
     }
 }
